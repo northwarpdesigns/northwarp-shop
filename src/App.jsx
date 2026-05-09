@@ -223,81 +223,62 @@ export default function NorthWarpSite() {
               </select>
             </div>
 
-            <div className="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 shadow-2xl flex flex-col">
-              <h3 className="text-3xl font-black text-red-400 uppercase mb-6">
-                Design Notes
-              </h3>
+            {/* Products Section */}
+<section className="px-6 py-20 bg-black">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-5xl font-black uppercase text-center mb-16">
+      Popular Wrap Kits
+    </h2>
 
-              <textarea
-                placeholder="Describe your idea, colors, logos, themes, or inspiration..."
-                rows="10"
-                className="w-full p-4 rounded-xl bg-black border border-zinc-700 focus:outline-none focus:border-red-500 flex-grow"
-              />
+    <div className="grid md:grid-cols-3 gap-10">
+      {[
+        {
+          name: "Street Flame Wrap",
+          price: "$59",
+        },
+        {
+          name: "Midnight Racing Kit",
+          price: "$79",
+        },
+        {
+          name: "Custom Design Package",
+          price: "$120",
+        },
+      ].map((product, index) => (
+        <div
+          key={index}
+          className="bg-black border border-zinc-800 rounded-3xl overflow-hidden hover:border-purple-500 transition shadow-2xl"
+        >
+          <div className="h-72 bg-gradient-to-br from-purple-700/30 to-red-700/30 flex items-center justify-center text-zinc-500 text-xl font-bold">
+            Product Preview
+          </div>
 
-              <button className="mt-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-red-500 text-lg font-black uppercase hover:opacity-90 transition shadow-lg">
-                Submit Custom Order
+          <div className="p-8 text-left">
+            <h3 className="text-2xl font-black mb-2 text-white uppercase">
+              {product.name}
+            </h3>
+
+            <p className="text-zinc-400 mb-6">
+              High-quality sticker kit with durable vinyl and premium finish.
+            </p>
+
+            <div className="flex items-center justify-between">
+              <span className="text-3xl font-black text-purple-400">
+                {product.price}
+              </span>
+
+              <button className="px-5 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-red-500 font-bold hover:opacity-90 transition">
+                Buy Now
               </button>
             </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
-      {/* Contact Section */}
-                price: "$59",
-              },
-              {
-                name: "Midnight Racing Kit",
-                price: "$79",
-              },
-              {
-                name: "Custom Design Package",
-                price: "$120",
-              },
-            ].map((product, index) => (
-              <div
-                key={index}
-                className="bg-black border border-zinc-800 rounded-3xl overflow-hidden hover:border-purple-500 transition shadow-2xl"
-              >
-                <div className="h-72 bg-gradient-to-br from-purple-700/30 to-red-700/30 flex items-center justify-center text-zinc-500 text-xl font-bold">
-                  Product Preview
-                </div>
-
-                <div className="p-8 text-left">
-                  <h3 className="text-2xl font-black mb-2 text-white uppercase">
-                    {product.name}
-                  </h3>
-
-                  <p className="text-zinc-400 mb-6">
-                    High-quality sticker kit with durable vinyl and premium finish.
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl font-black text-purple-400">
-                      {product.price}
-                    </span>
-
-                    <button className="px-5 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-red-500 font-bold hover:opacity-90 transition">
-                      Buy Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="px-6 py-20 bg-zinc-950">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-black uppercase mb-12 text-white">
-            Featured Designs
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
+{/* Gallery Section */}
                 className="rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 hover:scale-105 transition duration-300"
               >
                 <div className="h-72 bg-gradient-to-br from-purple-700/40 to-red-700/40 flex items-center justify-center text-zinc-500 text-xl font-bold">
