@@ -1,180 +1,263 @@
+import {
+  Search,
+  User,
+  ShoppingBag,
+  Instagram,
+  Mail,
+} from "lucide-react";
+
 export default function App() {
   const products = [
     {
-      name: "Street Flame Wrap",
-      price: "$59",
+      name: "Monster Energy Moped Sticker Set — Red & Black",
+      price: "€200,00",
+      image:
+        "https://i.imgur.com/8V9mK3x.jpeg",
+      buy:
+        "https://buy.stripe.com/test_00g000000000000000",
     },
     {
-      name: "Midnight Racing Kit",
-      price: "$79",
+      name: "Monster Energy Moped Sticker Set — Pink & Purple",
+      price: "€200,00",
+      image:
+        "https://i.imgur.com/5D8fVhK.jpeg",
+      buy:
+        "https://buy.stripe.com/test_00g000000000000000",
     },
     {
-      name: "Custom Design Package",
-      price: "$120",
+      name: "Monster Energy Moped Sticker Set — Green & Black",
+      price: "€200,00",
+      image:
+        "https://i.imgur.com/G6sYx9l.jpeg",
+      buy:
+        "https://buy.stripe.com/test_00g000000000000000",
     },
   ];
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#111",
-        color: "white",
-        fontFamily: "Arial",
-        padding: "40px",
-      }}
-    >
-      <div style={{ textAlign: "center", marginBottom: "60px" }}>
-        <h1 style={{ fontSize: "60px", marginBottom: "20px" }}>
-          Northwarp Designs
+    <div className="bg-black text-white min-h-screen font-sans">
+      {/* TOP BAR */}
+      <div className="text-center text-sm py-3 border-b border-zinc-800">
+        Welcome to our store
+      </div>
+
+      {/* NAVBAR */}
+      <nav className="flex items-center justify-between px-8 py-5 border-b border-zinc-900">
+        <h1 className="text-4xl font-black bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
+          NORTHWRAP
         </h1>
 
-        <p style={{ color: "#aaa", fontSize: "20px" }}>
-          Custom moped wraps, racing graphics, and premium sticker kits.
-        </p>
+        <div className="flex gap-8 text-zinc-300 font-semibold">
+          <a href="#" className="hover:text-white transition">
+            Home
+          </a>
 
-        <button
+          <a href="#products" className="hover:text-white transition">
+            Catalog
+          </a>
+        </div>
+
+        <div className="flex gap-5 text-zinc-300">
+          <Search className="cursor-pointer hover:text-white" />
+          <User className="cursor-pointer hover:text-white" />
+
+          <a href="#products">
+            <ShoppingBag className="cursor-pointer hover:text-white" />
+          </a>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-20"
           style={{
-            marginTop: "25px",
-            padding: "15px 30px",
-            border: "none",
-            borderRadius: "12px",
-            background: "linear-gradient(to right, purple, red)",
-            color: "white",
-            fontWeight: "bold",
-            cursor: "pointer",
+            backgroundImage:
+              "radial-gradient(circle at top left, #7c3aed 0%, transparent 40%), radial-gradient(circle at bottom right, #ef4444 0%, transparent 40%)",
           }}
-        >
-          Book a Custom Design
-        </button>
-      </div>
+        />
 
-      <h2 style={{ fontSize: "40px", marginBottom: "30px" }}>
-        Popular Wrap Kits
-      </h2>
+        <div className="relative z-10 text-center px-6 py-32">
+          <h1 className="text-8xl md:text-9xl font-black uppercase tracking-tight bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
+            NORTHWRAP
+          </h1>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "25px",
-        }}
-      >
-        {products.map((product, index) => (
-          <div
-            key={index}
-            style={{
-              background: "#1e1e1e",
-              borderRadius: "20px",
-              padding: "25px",
-            }}
+          <h2 className="mt-10 text-5xl md:text-6xl font-black uppercase">
+            Ride. Design. Stand Out.
+          </h2>
+
+          <p className="mt-10 text-4xl font-bold">
+            Browse our latest products
+          </p>
+
+          <a
+            href="#products"
+            className="inline-block mt-10 px-10 py-4 rounded-2xl border border-zinc-700 hover:border-purple-500 hover:bg-zinc-900 transition text-lg font-bold"
           >
-            <div
-              style={{
-                height: "180px",
-                borderRadius: "15px",
-                background: "linear-gradient(to bottom right, purple, red)",
-                marginBottom: "20px",
-              }}
-            />
+            Shop all
+          </a>
+        </div>
+      </section>
 
-            <h3 style={{ fontSize: "28px" }}>{product.name}</h3>
+      {/* PRODUCTS */}
+      <section id="products" className="px-6 py-24">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-black mb-16">Products</h2>
 
-            <p style={{ color: "#aaa" }}>
-              Premium vinyl wrap kit with racing inspired styling.
+          <div className="grid md:grid-cols-3 gap-10">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="bg-zinc-950 rounded-[30px] overflow-hidden border border-zinc-800 hover:border-purple-500 transition-all duration-300"
+              >
+                <div className="relative">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-[500px] object-cover"
+                  />
+
+                  <div className="absolute top-5 right-5 bg-black/80 px-4 py-2 rounded-full text-sm font-bold">
+                    In stock
+                  </div>
+                </div>
+
+                <div className="p-7">
+                  <h3 className="text-2xl font-bold leading-snug">
+                    {product.name}
+                  </h3>
+
+                  <p className="mt-5 text-4xl font-black text-purple-400">
+                    {product.price}
+                  </p>
+
+                  <a
+                    href={product.buy}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mt-8 text-center py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-red-500 font-bold text-lg hover:opacity-90 transition"
+                  >
+                    Buy now
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HELP SECTION */}
+      <section className="px-6 pb-24">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+          <div className="border border-zinc-800 rounded-[35px] p-14 bg-zinc-950">
+            <p className="text-purple-400 uppercase tracking-widest font-bold">
+              We’re here to help
             </p>
 
-            <div
-              style={{
-                marginTop: "20px",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
+            <h2 className="text-6xl font-black leading-tight mt-6">
+              Questions? We're Here To Help
+            </h2>
+
+            <p className="mt-8 text-zinc-400 text-lg leading-relaxed">
+              Have a question about our products or services?
+              We'd love to hear from you.
+            </p>
+
+            <a
+              href="mailto:northwrapdesigns@gmail.com"
+              className="inline-block mt-10 px-8 py-4 rounded-2xl border border-purple-500 hover:bg-purple-500/10 transition font-bold"
             >
-              <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                {product.price}
-              </span>
-
-              <button
-                style={{
-                  padding: "10px 20px",
-                  border: "none",
-                  borderRadius: "10px",
-                  background: "purple",
-                  color: "white",
-                  cursor: "pointer",
-                }}
-              >
-                Buy Now
-              </button>
-            </div>
+              Contact us
+            </a>
           </div>
-        ))}
-      </div>
 
-      <div
-        style={{
-          marginTop: "80px",
-          background: "#1a1a1a",
-          padding: "40px",
-          borderRadius: "25px",
-        }}
-      >
-        <h2 style={{ fontSize: "40px", marginBottom: "30px" }}>
-          Custom Order Request
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-          }}
-        >
-          <input
-            placeholder="Your Name"
-            style={{
-              padding: "15px",
-              borderRadius: "10px",
-              border: "none",
-            }}
-          />
-
-          <input
-            placeholder="Your Email"
-            style={{
-              padding: "15px",
-              borderRadius: "10px",
-              border: "none",
-            }}
-          />
-
-          <textarea
-            rows="6"
-            placeholder="Describe your custom wrap idea..."
-            style={{
-              padding: "15px",
-              borderRadius: "10px",
-              border: "none",
-            }}
-          />
-
-          <button
-            style={{
-              padding: "15px",
-              borderRadius: "12px",
-              border: "none",
-              background: "linear-gradient(to right, purple, red)",
-              color: "white",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
-          >
-            Submit Request
-          </button>
+          <div className="rounded-[35px] overflow-hidden border border-zinc-800">
+            <img
+              src="https://i.imgur.com/L9h6m9W.jpeg"
+              alt="Northwrap"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* EMAIL LIST */}
+      <section className="px-6 pb-24">
+        <div className="max-w-7xl mx-auto border border-zinc-800 rounded-[35px] p-12 bg-zinc-950 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div>
+            <h2 className="text-5xl font-black">
+              Join our email list
+            </h2>
+
+            <p className="mt-4 text-zinc-400 text-lg">
+              Get exclusive deals and early access to new products.
+            </p>
+          </div>
+
+          <form
+            action="https://formsubmit.co/northwrapdesigns@gmail.com"
+            method="POST"
+            className="flex w-full md:w-auto"
+          >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Email address"
+              className="bg-black border border-zinc-700 rounded-l-full px-8 py-5 w-[320px] outline-none"
+            />
+
+            <button
+              type="submit"
+              className="px-8 rounded-r-full bg-gradient-to-r from-purple-600 to-red-500 font-bold"
+            >
+              →
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="px-6 pb-12">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-zinc-900 pt-10">
+          <div>
+            <h2 className="text-4xl font-black bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
+              NORTHWRAP
+            </h2>
+
+            <p className="text-zinc-500 mt-4">
+              © 2026 North Wrap Designs
+            </p>
+          </div>
+
+          <div className="flex gap-6 text-zinc-400">
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              <Instagram size={32} />
+            </a>
+
+            <a
+              href="https://tiktok.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition text-3xl font-bold"
+            >
+              TikTok
+            </a>
+
+            <a
+              href="mailto:northwrapdesigns@gmail.com"
+              className="hover:text-white transition"
+            >
+              <Mail size={32} />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
