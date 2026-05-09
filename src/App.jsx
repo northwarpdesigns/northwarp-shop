@@ -1,119 +1,123 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+import './App.css'
+
+function App() {
+  const products = [
+    {
+      name: "Monster Energy Moped Sticker Set — Red & Black",
+      price: "€200,00",
+      image: "/redbike.png",
+    },
+    {
+      name: "Monster Energy Moped Sticker Set — Pink & Purple",
+      price: "€200,00",
+      image: "/purplebike.png",
+    },
+    {
+      name: "Monster Energy Moped Sticker Set — Green & Black",
+      price: "€200,00",
+      image: "/greenbike.png",
+    },
+  ]
+
+  return (
+    <div className="app">
+      <header className="navbar">
+        <h1>NORTHWRAP</h1>
+
+        <nav>
+          <a href="#">Home</a>
+          <a href="#products">Catalog</a>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <h1>NORTHWRAP</h1>
+        <h2>Ride. Design. Stand Out.</h2>
+        <p>Browse our latest products</p>
+
+        <a href="#products" className="shop-btn">
+          Shop all
+        </a>
+      </section>
+
+      <section id="products" className="products-section">
+        <h2>Products</h2>
+
+        <div className="products-grid">
+          {products.map((product, index) => (
+            <div className="product-card" key={index}>
+              <img src={product.image} alt={product.name} />
+
+              <h3>{product.name}</h3>
+
+              <p>{product.price}</p>
+
+              <button
+                onClick={() =>
+                  alert("Checkout coming soon!")
+                }
+              >
+                Buy now
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="help-section">
+        <div>
+          <h2>Questions? We're Here To Help</h2>
+
+          <p>
+            Have a question about our products or services?
+            We'd love to hear from you.
+          </p>
+
+          <a href="mailto:northwrapdesigns@gmail.com">
+            Contact us
+          </a>
+        </div>
+
+        <img src="/redbike1.png" alt="Bike" />
+      </section>
+
+      <section className="email-section">
+        <h2>Join our email list</h2>
+
+        <p>
+          Get exclusive deals and early access to new products.
+        </p>
+
+        <div className="email-box">
+          <input type="email" placeholder="Email address" />
+
+          <button>→</button>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <h2>NORTHWRAP</h2>
+
+        <p>© 2026 North Wrap Designs</p>
+
+        <div className="socials">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="https://tiktok.com"
+            target="_blank"
+          >
+            TikTok
+          </a>
+        </div>
+      </footer>
+    </div>
+  )
 }
 
-body {
-  background: black;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-.app {
-  width: 100%;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 50px;
-  background: black;
-}
-
-.nav-links,
-.nav-icons,
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.hero h2 {
-  font-size: 70px;
-  margin-bottom: 20px;
-}
-
-.shop-btn,
-.buy-btn,
-.contact-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  border: 1px solid white;
-  border-radius: 10px;
-}
-
-.products {
-  padding: 50px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.card h3 {
-  margin-top: 15px;
-}
-
-.card p {
-  margin-top: 10px;
-}
-
-.contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 50px;
-  padding: 80px 50px;
-}
-
-.contact img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.email-section {
-  padding: 50px;
-}
-
-.email-section form {
-  display: flex;
-  margin-top: 20px;
-}
-
-.email-section input {
-  flex: 1;
-  padding: 15px;
-  border-radius: 10px 0 0 10px;
-  border: none;
-}
-
-.email-section button {
-  padding: 15px 25px;
-  border: none;
-  background: purple;
-  color: white;
-  border-radius: 0 10px 10px 0;
-}
-
-footer {
-  padding: 50px;
-}
+export default App
