@@ -3,7 +3,7 @@ export default function App() {
     {
       name: "Monster Energy Moped Sticker Set — Red & Black",
       price: "€200",
-      image: "/redbike.png",
+      image: "/redbike1.png",
       link: "https://buy.stripe.com/test",
     },
     {
@@ -15,7 +15,7 @@ export default function App() {
     {
       name: "Monster Energy Moped Sticker Set — Green & Black",
       price: "€200",
-      image: "/greenbike1.png",
+      image: "/greenbike.png",
       link: "https://buy.stripe.com/test",
     },
   ];
