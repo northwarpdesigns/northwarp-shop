@@ -1,7 +1,7 @@
 import {
+  ShoppingBag,
   Search,
   User,
-  ShoppingBag,
   Instagram,
   Mail,
 } from "lucide-react";
@@ -11,88 +11,74 @@ export default function App() {
     {
       name: "Monster Energy Moped Sticker Set — Red & Black",
       price: "€200,00",
-      image:
-        "https://i.imgur.com/8V9mK3x.jpeg",
-      buy:
-        "https://buy.stripe.com/test_00g000000000000000",
+      image: "/redbike.png",
+      hoverImage: "/redbike1.png",
     },
     {
       name: "Monster Energy Moped Sticker Set — Pink & Purple",
       price: "€200,00",
-      image:
-        "https://i.imgur.com/5D8fVhK.jpeg",
-      buy:
-        "https://buy.stripe.com/test_00g000000000000000",
+      image: "/purplebike.png",
+      hoverImage: "/purplebike1.png",
     },
     {
       name: "Monster Energy Moped Sticker Set — Green & Black",
       price: "€200,00",
-      image:
-        "https://i.imgur.com/G6sYx9l.jpeg",
-      buy:
-        "https://buy.stripe.com/test_00g000000000000000",
+      image: "/greenbike.png",
+      hoverImage: "/greenbike1.png",
     },
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen font-sans">
+    <div className="bg-black text-white min-h-screen">
       {/* TOP BAR */}
       <div className="text-center text-sm py-3 border-b border-zinc-800">
         Welcome to our store
       </div>
 
       {/* NAVBAR */}
-      <nav className="flex items-center justify-between px-8 py-5 border-b border-zinc-900">
+      <nav className="flex items-center justify-between px-8 py-6">
         <h1 className="text-4xl font-black bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
           NORTHWRAP
         </h1>
 
-        <div className="flex gap-8 text-zinc-300 font-semibold">
-          <a href="#" className="hover:text-white transition">
-            Home
-          </a>
-
-          <a href="#products" className="hover:text-white transition">
-            Catalog
-          </a>
+        <div className="flex gap-8 font-medium">
+          <a href="#">Home</a>
+          <a href="#products">Catalog</a>
         </div>
 
-        <div className="flex gap-5 text-zinc-300">
-          <Search className="cursor-pointer hover:text-white" />
-          <User className="cursor-pointer hover:text-white" />
-
-          <a href="#products">
-            <ShoppingBag className="cursor-pointer hover:text-white" />
-          </a>
+        <div className="flex gap-5">
+          <Search />
+          <User />
+          <ShoppingBag />
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
+      <section className="relative px-10 py-24 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              "radial-gradient(circle at top left, #7c3aed 0%, transparent 40%), radial-gradient(circle at bottom right, #ef4444 0%, transparent 40%)",
+              "url('/purplebike1.png')",
           }}
         />
 
-        <div className="relative z-10 text-center px-6 py-32">
-          <h1 className="text-8xl md:text-9xl font-black uppercase tracking-tight bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
+        <div className="relative z-10 max-w-3xl">
+          <h1 className="text-7xl font-black mb-6">
             NORTHWRAP
           </h1>
 
-          <h2 className="mt-10 text-5xl md:text-6xl font-black uppercase">
+          <h2 className="text-4xl font-bold mb-4">
             Ride. Design. Stand Out.
           </h2>
 
-          <p className="mt-10 text-4xl font-bold">
+          <p className="text-zinc-300 text-xl mb-10">
             Browse our latest products
           </p>
 
           <a
             href="#products"
-            className="inline-block mt-10 px-10 py-4 rounded-2xl border border-zinc-700 hover:border-purple-500 hover:bg-zinc-900 transition text-lg font-bold"
+            className="px-8 py-4 rounded-full border border-purple-500 hover:bg-purple-600 transition"
           >
             Shop all
           </a>
@@ -100,96 +86,104 @@ export default function App() {
       </section>
 
       {/* PRODUCTS */}
-      <section id="products" className="px-6 py-24">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-black mb-16">Products</h2>
+      <section id="products" className="px-10 py-20">
+        <h2 className="text-5xl font-bold mb-14">
+          Products
+        </h2>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="bg-zinc-950 rounded-[30px] overflow-hidden border border-zinc-800 hover:border-purple-500 transition-all duration-300"
-              >
-                <div className="relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-[500px] object-cover"
-                  />
+        <div className="grid md:grid-cols-3 gap-10">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="bg-zinc-950 rounded-3xl overflow-hidden border border-zinc-800 hover:border-purple-500 transition"
+            >
+              <div className="group relative overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-[420px] object-cover group-hover:hidden"
+                />
 
-                  <div className="absolute top-5 right-5 bg-black/80 px-4 py-2 rounded-full text-sm font-bold">
-                    In stock
-                  </div>
-                </div>
+                <img
+                  src={product.hoverImage}
+                  alt={product.name}
+                  className="w-full h-[420px] object-cover hidden group-hover:block"
+                />
 
-                <div className="p-7">
-                  <h3 className="text-2xl font-bold leading-snug">
-                    {product.name}
-                  </h3>
-
-                  <p className="mt-5 text-4xl font-black text-purple-400">
-                    {product.price}
-                  </p>
-
-                  <a
-                    href={product.buy}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-8 text-center py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-red-500 font-bold text-lg hover:opacity-90 transition"
-                  >
-                    Buy now
-                  </a>
+                <div className="absolute top-4 right-4 bg-black/70 px-4 py-2 rounded-full text-sm">
+                  In stock
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold">
+                  {product.name}
+                </h3>
+
+                <p className="text-3xl mt-4 font-bold text-purple-400">
+                  {product.price}
+                </p>
+
+                <a
+                  href="https://www.instagram.com/northwrapdesigns"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mt-6"
+                >
+                  <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-red-500 font-bold hover:scale-105 transition">
+                    Buy now
+                  </button>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* HELP SECTION */}
-      <section className="px-6 pb-24">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-          <div className="border border-zinc-800 rounded-[35px] p-14 bg-zinc-950">
-            <p className="text-purple-400 uppercase tracking-widest font-bold">
-              We’re here to help
+      <section className="px-10 pb-20">
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="bg-zinc-950 border border-zinc-800 rounded-3xl p-12">
+            <p className="uppercase text-purple-400 mb-4 tracking-widest">
+              We're here to help
             </p>
 
-            <h2 className="text-6xl font-black leading-tight mt-6">
+            <h2 className="text-5xl font-bold mb-6">
               Questions? We're Here To Help
             </h2>
 
-            <p className="mt-8 text-zinc-400 text-lg leading-relaxed">
+            <p className="text-zinc-400 text-lg mb-10">
               Have a question about our products or services?
               We'd love to hear from you.
             </p>
 
             <a
               href="mailto:northwrapdesigns@gmail.com"
-              className="inline-block mt-10 px-8 py-4 rounded-2xl border border-purple-500 hover:bg-purple-500/10 transition font-bold"
+              className="px-8 py-4 rounded-full border border-purple-500 hover:bg-purple-600 transition"
             >
               Contact us
             </a>
           </div>
 
-          <div className="rounded-[35px] overflow-hidden border border-zinc-800">
+          <div className="rounded-3xl overflow-hidden">
             <img
-              src="https://i.imgur.com/L9h6m9W.jpeg"
-              alt="Northwrap"
+              src="/purplebike1.png"
+              alt="NorthWrap"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
       </section>
 
-      {/* EMAIL LIST */}
-      <section className="px-6 pb-24">
-        <div className="max-w-7xl mx-auto border border-zinc-800 rounded-[35px] p-12 bg-zinc-950 flex flex-col md:flex-row items-center justify-between gap-10">
+      {/* EMAIL */}
+      <section className="px-10 pb-20">
+        <div className="bg-zinc-950 border border-zinc-800 rounded-3xl p-10 flex flex-col md:flex-row gap-8 items-center justify-between">
           <div>
-            <h2 className="text-5xl font-black">
+            <h2 className="text-5xl font-bold mb-4">
               Join our email list
             </h2>
 
-            <p className="mt-4 text-zinc-400 text-lg">
+            <p className="text-zinc-400 text-lg">
               Get exclusive deals and early access to new products.
             </p>
           </div>
@@ -197,19 +191,19 @@ export default function App() {
           <form
             action="https://formsubmit.co/northwrapdesigns@gmail.com"
             method="POST"
-            className="flex w-full md:w-auto"
+            className="flex w-full md:w-[500px]"
           >
             <input
               type="email"
               name="email"
               required
               placeholder="Email address"
-              className="bg-black border border-zinc-700 rounded-l-full px-8 py-5 w-[320px] outline-none"
+              className="flex-1 bg-black border border-zinc-700 rounded-l-full px-6 py-4 outline-none"
             />
 
             <button
               type="submit"
-              className="px-8 rounded-r-full bg-gradient-to-r from-purple-600 to-red-500 font-bold"
+              className="bg-gradient-to-r from-purple-600 to-red-500 px-8 rounded-r-full"
             >
               →
             </button>
@@ -218,44 +212,43 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="px-6 pb-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-zinc-900 pt-10">
-          <div>
-            <h2 className="text-4xl font-black bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
-              NORTHWRAP
-            </h2>
+      <footer className="px-10 py-10 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div>
+          <h2 className="text-4xl font-black bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">
+            NORTHWRAP
+          </h2>
 
-            <p className="text-zinc-500 mt-4">
-              © 2026 North Wrap Designs
-            </p>
-          </div>
+          <p className="text-zinc-500 mt-4">
+            © 2026 North Wrap Designs
+          </p>
+        </div>
 
-          <div className="flex gap-6 text-zinc-400">
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
+        <div className="flex gap-8">
+          <a
+            href="https://www.instagram.com/northwrapdesigns"
+            target="_blank"
+          >
+            <Instagram size={34} />
+          </a>
+
+          <a
+            href="https://www.tiktok.com"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="34"
+              height="34"
+              fill="currentColor"
+              viewBox="0 0 16 16"
             >
-              <Instagram size={32} />
-            </a>
+              <path d="M9.5 0h2.09a3.5 3.5 0 0 0 3.41 3.09v2.02a5.5 5.5 0 0 1-3.5-1.26v5.4A4.65 4.65 0 1 1 6.85 4.6v2.1a2.55 2.55 0 1 0 2.65 2.55z" />
+            </svg>
+          </a>
 
-            <a
-              href="https://tiktok.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition text-3xl font-bold"
-            >
-              TikTok
-            </a>
-
-            <a
-              href="mailto:northwrapdesigns@gmail.com"
-              className="hover:text-white transition"
-            >
-              <Mail size={32} />
-            </a>
-          </div>
+          <a href="mailto:northwrapdesigns@gmail.com">
+            <Mail size={34} />
+          </a>
         </div>
       </footer>
     </div>
