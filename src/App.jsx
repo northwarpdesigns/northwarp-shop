@@ -15,98 +15,166 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      {/* Hero */}
-      <section className="text-center py-24 px-6 bg-gradient-to-b from-black to-zinc-900">
-        <h1 className="text-6xl font-black uppercase mb-6">
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#111",
+        color: "white",
+        fontFamily: "Arial",
+        padding: "40px",
+      }}
+    >
+      <div style={{ textAlign: "center", marginBottom: "60px" }}>
+        <h1 style={{ fontSize: "60px", marginBottom: "20px" }}>
           Northwarp Designs
         </h1>
 
-        <p className="text-zinc-400 text-xl max-w-2xl mx-auto mb-10">
+        <p style={{ color: "#aaa", fontSize: "20px" }}>
           Custom moped wraps, racing graphics, and premium sticker kits.
         </p>
 
-        <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-red-500 text-lg font-black uppercase hover:opacity-90 transition">
+        <button
+          style={{
+            marginTop: "25px",
+            padding: "15px 30px",
+            border: "none",
+            borderRadius: "12px",
+            background: "linear-gradient(to right, purple, red)",
+            color: "white",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+        >
           Book a Custom Design
         </button>
-      </section>
+      </div>
 
-      {/* Products */}
-      <section className="px-6 py-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-black uppercase text-center mb-16">
-            Popular Wrap Kits
-          </h2>
+      <h2 style={{ fontSize: "40px", marginBottom: "30px" }}>
+        Popular Wrap Kits
+      </h2>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl"
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "25px",
+        }}
+      >
+        {products.map((product, index) => (
+          <div
+            key={index}
+            style={{
+              background: "#1e1e1e",
+              borderRadius: "20px",
+              padding: "25px",
+            }}
+          >
+            <div
+              style={{
+                height: "180px",
+                borderRadius: "15px",
+                background: "linear-gradient(to bottom right, purple, red)",
+                marginBottom: "20px",
+              }}
+            />
+
+            <h3 style={{ fontSize: "28px" }}>{product.name}</h3>
+
+            <p style={{ color: "#aaa" }}>
+              Premium vinyl wrap kit with racing inspired styling.
+            </p>
+
+            <div
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                {product.price}
+              </span>
+
+              <button
+                style={{
+                  padding: "10px 20px",
+                  border: "none",
+                  borderRadius: "10px",
+                  background: "purple",
+                  color: "white",
+                  cursor: "pointer",
+                }}
               >
-                <div className="h-72 bg-gradient-to-br from-purple-700/30 to-red-700/30 flex items-center justify-center text-zinc-500 text-xl font-bold">
-                  Product Preview
-                </div>
-
-                <div className="p-8">
-                  <h3 className="text-2xl font-black mb-3 uppercase">
-                    {product.name}
-                  </h3>
-
-                  <p className="text-zinc-400 mb-6">
-                    High-quality vinyl wrap kit with premium finish and racing style.
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl font-black text-purple-400">
-                      {product.price}
-                    </span>
-
-                    <button className="px-5 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-red-500 font-bold hover:opacity-90 transition">
-                      Buy Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="px-6 py-20 bg-zinc-950">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-black border border-zinc-800 rounded-3xl p-10 shadow-2xl">
-            <h2 className="text-4xl font-black uppercase mb-8 text-center">
-              Custom Order Request
-            </h2>
-
-            <div className="space-y-6">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700"
-              />
-
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700"
-              />
-
-              <textarea
-                rows="6"
-                placeholder="Describe your custom wrap idea..."
-                className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700"
-              />
-
-              <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-red-500 text-lg font-black uppercase hover:opacity-90 transition">
-                Submit Request
+                Buy Now
               </button>
             </div>
           </div>
+        ))}
+      </div>
+
+      <div
+        style={{
+          marginTop: "80px",
+          background: "#1a1a1a",
+          padding: "40px",
+          borderRadius: "25px",
+        }}
+      >
+        <h2 style={{ fontSize: "40px", marginBottom: "30px" }}>
+          Custom Order Request
+        </h2>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+        >
+          <input
+            placeholder="Your Name"
+            style={{
+              padding: "15px",
+              borderRadius: "10px",
+              border: "none",
+            }}
+          />
+
+          <input
+            placeholder="Your Email"
+            style={{
+              padding: "15px",
+              borderRadius: "10px",
+              border: "none",
+            }}
+          />
+
+          <textarea
+            rows="6"
+            placeholder="Describe your custom wrap idea..."
+            style={{
+              padding: "15px",
+              borderRadius: "10px",
+              border: "none",
+            }}
+          />
+
+          <button
+            style={{
+              padding: "15px",
+              borderRadius: "12px",
+              border: "none",
+              background: "linear-gradient(to right, purple, red)",
+              color: "white",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            Submit Request
+          </button>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
